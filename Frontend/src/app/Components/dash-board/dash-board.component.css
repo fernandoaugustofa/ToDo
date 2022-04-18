@@ -1,0 +1,15 @@
+.center{
+  max-width: 900px;
+  padding: 20px;
+  margin: auto;
+}
+
+
+.uk-input, .uk-select{
+  border-radius: 10px !important;
+  margin: 0px;
+}
+
+.filter-div{
+  padding-left: 15px;
+}

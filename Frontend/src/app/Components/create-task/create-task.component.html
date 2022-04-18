@@ -1,0 +1,67 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="TaskForm" class="uk-form-stacked">
+      <div class="uk-margin">
+          <label class="uk-form-label">Text</label>
+          <div class="uk-form-controls">
+              <input class="uk-input" type="text" formControlName="title">
+          </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Text</label>
+        <div class="uk-form-controls">
+            <input class="uk-input" type="text" formControlName="description">
+        </div>
+      </div>
+
+      <div class="uk-margin">
+          <label class="uk-form-label">Select</label>
+          <div class="uk-form-controls">
+              <select class="uk-select" formControlName="status">
+                <option value="IN_PROGRESS">Option 01</option>
+                <option value="DONE">Option 02</option>
+              </select>
+          </div>
+      </div>
+      <div class="uk-margin">
+          <label class="uk-form-label">Text</label>
+          <div class="uk-form-controls">
+              <input class="uk-input" type="date" formControlName="deadline">
+          </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Select</label>
+        <div class="uk-form-controls">
+            <select class="uk-select" formControlName="priority">
+              <option value="LOW">Low</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="HIGH">High</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Select</label>
+        <div class="uk-form-controls">
+            <!-- <select class="uk-select" formControlName="user.id">
+              <option *ngFor="let user of UserList" value="{{ user.id }}">{{user.username}}</option>
+            </select> -->
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="submit()">Salvar</button>
+  </div>
+</ng-template>
+
+<a *ngIf="!Card" class="uk-icon-button" style="margin-left:25px; background-color:rgba(0, 47, 255, 0.772); color: aliceblue;" uk-icon="icon: plus" (click)="open(content)"></a>
+
+<div *ngIf="Card" class="card" (click)="open(content)"> <div style="margin:auto; width:fit-content"> <a uk-icon="icon: plus"></a> </div> </div>

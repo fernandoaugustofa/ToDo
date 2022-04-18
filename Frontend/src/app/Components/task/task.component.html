@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="uk-flex-middle" uk-grid>
+    <div class="tag">
+      <div style="margin:auto; width:fit-content">
+        {{Task.id}}
+      </div>
+
+    </div>
+    <div class="uk-width-expand divider">
+      <p class="title">{{Task.title}}</p>
+      <p class="subtitles"> {{Task.description}}</p>
+    </div>
+    <ul class="uk-iconnav uk-width-auto divider">
+      <li><a class="uk-icon-button" uk-icon="icon: pencil"></a></li>
+      <li><a class="uk-icon-button" uk-icon="icon: trash" (click)="deleteTask()"></a></li>
+      <li><a class="uk-icon-button" uk-icon="icon: check" (click)="doneTask()"></a></li>
+    </ul>
+  </div>
+</div>

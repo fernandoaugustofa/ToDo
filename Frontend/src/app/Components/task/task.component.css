@@ -1,0 +1,28 @@
+.card{
+  background: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px #d0d0d0;
+  margin-bottom: 15px;
+  padding:10px;
+  padding-left: 0px;
+}
+
+.tag{
+  width:100px;
+}
+
+.divider{
+  border-left: 1px solid #d0d0d0;
+}
+
+.title{
+  font-size:17px;
+  margin: 0px;
+}
+
+.subtitles{
+  font-size:13px;
+  margin: 0px;
+}
