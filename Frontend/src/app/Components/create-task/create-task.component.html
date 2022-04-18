@@ -1,57 +1,57 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Nova Tarefa</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
     <form [formGroup]="TaskForm" class="uk-form-stacked">
       <div class="uk-margin">
-          <label class="uk-form-label">Text</label>
+          <label class="uk-form-label">Titulo</label>
           <div class="uk-form-controls">
               <input class="uk-input" type="text" formControlName="title">
           </div>
       </div>
 
       <div class="uk-margin">
-        <label class="uk-form-label">Text</label>
+        <label class="uk-form-label">Descricao</label>
         <div class="uk-form-controls">
             <input class="uk-input" type="text" formControlName="description">
         </div>
       </div>
 
       <div class="uk-margin">
-          <label class="uk-form-label">Select</label>
+          <label class="uk-form-label">Status</label>
           <div class="uk-form-controls">
               <select class="uk-select" formControlName="status">
-                <option value="IN_PROGRESS">Option 01</option>
-                <option value="DONE">Option 02</option>
+                <option value="IN_PROGRESS">Em Andamento</option>
+                <option value="DONE">Concluida</option>
               </select>
           </div>
       </div>
       <div class="uk-margin">
-          <label class="uk-form-label">Text</label>
+          <label class="uk-form-label">Deadline</label>
           <div class="uk-form-controls">
               <input class="uk-input" type="date" formControlName="deadline">
           </div>
       </div>
 
       <div class="uk-margin">
-        <label class="uk-form-label">Select</label>
+        <label class="uk-form-label">Prioridade</label>
         <div class="uk-form-controls">
             <select class="uk-select" formControlName="priority">
-              <option value="LOW">Low</option>
-              <option value="MEDIUM">Medium</option>
-              <option value="HIGH">High</option>
+              <option value="LOW">Baixa</option>
+              <option value="MEDIUM">Média</option>
+              <option value="HIGH">Alta</option>
             </select>
         </div>
       </div>
 
       <div class="uk-margin">
-        <label class="uk-form-label">Select</label>
+        <label class="uk-form-label">Responsável</label>
         <div class="uk-form-controls">
-            <!-- <select class="uk-select" formControlName="user.id">
+            <select class="uk-select" formControlName="user">
               <option *ngFor="let user of UserList" value="{{ user.id }}">{{user.username}}</option>
-            </select> -->
+            </select>
         </div>
       </div>
 

@@ -19,7 +19,7 @@ import org.hibernate.annotations.Where;
 
 @Entity(name = "users")
 @Data
-@SQLDelete(sql = "UPDATE users SET deleted = true, deleted_at = UTC_TIMESTAMP() WHERE id=?")
+@SQLDelete(sql = "UPDATE users SET deleted = true, deleted_at = NOW() WHERE id=?")
 @Where(clause = "deleted=false")
 public class User {
 

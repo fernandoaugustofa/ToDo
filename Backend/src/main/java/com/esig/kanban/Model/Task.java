@@ -24,7 +24,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 @Data
 @Entity(name = "task")
-@SQLDelete(sql = "UPDATE task SET deleted = true, deleted_at = UTC_TIMESTAMP() WHERE id=?")
+@SQLDelete(sql = "UPDATE task SET deleted = true, deleted_at = NOW() WHERE id=?")
 @Where(clause = "deleted=false")
 public class Task {
 

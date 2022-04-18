@@ -3,6 +3,8 @@ package com.esig.kanban.Controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,7 @@ public class TaskController {
 	    return task;
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 	    taskService.delete(id);
 	}
@@ -35,17 +37,17 @@ public class TaskController {
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
 
-	@PutMapping(value = "/{id}",produces = "application/json")
-    public ResponseEntity<Optional<Task>> Update(@PathVariable Long id) {
-        Optional<Task> task = taskService.findById(id);
-        return new ResponseEntity<>(task, HttpStatus.OK);
+    @PutMapping(produces = "application/json")
+    public @ResponseBody Task Update(@RequestBody Task task) {
+        task = taskService.save(task);
+	    return task;
     }
 
 	@GetMapping(value="/search",produces = "application/json")
-    public ResponseEntity<List<Task>> Search(@RequestParam String title) {
-		
-        List<Task> tasks = taskService.Search(title);
-        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    public ResponseEntity<Optional<Task>> Search(@RequestParam long id, @RequestParam String title, @RequestParam String user, @RequestParam String deadline, @RequestParam String priority) {
+		Optional<Task> task = taskService.findById(id);
+        // List<Task> tasks = taskService.Search(title);
+        return new ResponseEntity<>(task, HttpStatus.OK);
     }
 	
 	@GetMapping(produces = "application/json")

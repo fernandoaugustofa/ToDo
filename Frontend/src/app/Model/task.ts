@@ -5,7 +5,10 @@ export class task {
   status!: string;
   deadline!: string;
   priority!: string;
-  user_id!: string;
+  user!:{
+    id: Number;
+    username: String;
+  };
   created_at!: string;
   updated_at!: string;
   concluded_at!: string;

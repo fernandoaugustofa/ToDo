@@ -41,10 +41,10 @@ export class TaskService {
       .pipe(retry(1), catchError(Error.handleError));
   }
 
-  Update(id: string, data: task): Observable<task> {
+  Update(data: task): Observable<task> {
     return this.http
       .put<task>(
-        this.baseurl + id,
+        this.baseurl,
         JSON.stringify(data),
         this.httpOptions
       )

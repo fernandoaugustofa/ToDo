@@ -12,7 +12,7 @@
   <H2 style="text-align:center">Tarefas <create-task-modal></create-task-modal></H2>
 
 
-  <div class="uk-text-center uk-child-width-expand uk-grid-small" style="margin-bottom: 20px;" uk-grid>
+  <!-- <div class="uk-text-center uk-child-width-expand uk-grid-small" style="margin-bottom: 20px;" uk-grid>
       <div>
         <label class="uk-form-label" for="form-stacked-text">Numero</label>
         <div class="uk-form-controls">
@@ -44,7 +44,7 @@
         </div>
       </div>
       <li><a class="uk-icon-button" style="margin-top:25px" uk-icon="icon: search"></a></li>
-  </div>
+  </div> -->
 <hr>
   <app-task *ngFor="let task of TaskList" [Task]="task"></app-task>
   <create-task-modal [Card]="true"></create-task-modal>

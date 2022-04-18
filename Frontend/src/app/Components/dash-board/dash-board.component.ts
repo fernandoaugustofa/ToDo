@@ -9,24 +9,14 @@ import { UserService } from '../../Services/user.service';
 })
 export class DashBoardComponent implements OnInit {
 
-  TaskList: any = [];
-  TaskFilter = {
-    id!: Number,
-    title!: '',
-    description!: '',
-    status!: '',
-    user_id!: ''
-  };
+  TaskList: any = this.loadTasks();
 
-  UserList: any = [];
-
-  StatusList: any = [{name: 'Em Andamento'},{name: 'Concluida'}];
+  UserList: any = this.loadusers();
 
   constructor(
     public taskService: TaskService,
     public userService: UserService,
-  ) { this.loadusers();
-  this.loadTasks(); }
+  ) { }
 
   loadTasks() {
     return this.taskService.Get().subscribe((data: {}) => {
@@ -42,6 +32,5 @@ export class DashBoardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
 }

@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { TaskService } from '../../Services/task.service';
 import { UserService } from '../../Services/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { task } from '../../Model/task';
 
 @Component({
   selector: 'create-task-modal',
@@ -20,7 +21,7 @@ export class CreateTaskComponent implements OnInit {
     status: ['', Validators.required],
     deadline!: '',
     priority: ['', Validators.required],
-    // user: [{id: ''}, Validators.required],
+    user: ['', Validators.required],
   });
 
   UserList: any = [];
@@ -38,8 +39,11 @@ export class CreateTaskComponent implements OnInit {
 
   submit() {
     console.log(this.TaskForm.value)
+    let send = this.TaskForm.value;
+    send.user = {id: this.TaskForm.value.user}
+    console.log(send)
     this.taskService.Create(this.TaskForm.value).subscribe((data: {}) => {
-
+      window.location.reload()
     })
   }
 
@@ -50,21 +54,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then();
   }
 
 }

@@ -21,12 +21,17 @@ export class TaskComponent implements OnInit {
 
   deleteTask(){
     console.log(this.Task.id);
-    this.taskService.Delete(this.Task.id).subscribe((data: {}) => {})
+    this.taskService.Delete(this.Task.id).subscribe((data: {}) => {
+      window.location.reload()
+    })
   }
 
   doneTask(){
-    this.Task.status = 'done';
-    this.taskService.Update(this.Task.id, this.Task).subscribe((data: {}) => {})
+    this.Task.status = 'DONE';
+    console.log(this.Task)
+    this.taskService.Update(this.Task).subscribe((data: {}) => {
+      window.location.reload()
+    })
   }
 
 }

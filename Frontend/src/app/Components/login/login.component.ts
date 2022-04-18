@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 
 @Component({
@@ -14,9 +15,12 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
   });
 
+  ERROR: String = '';
+
   constructor(
     public authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +28,10 @@ export class LoginComponent implements OnInit {
 
   submit() {
     console.log(this.LoginForm.value)
-    this.authService.SingIn(this.LoginForm.value);
+    this.authService.SingIn(this.LoginForm.value).subscribe((res: any) => {
+      localStorage.setItem('access_token', res.token);
+      this.router.navigate(['/']);
+    }, (err) => {this.ERROR= 'login e senha invalidos'});
   }
 
 }

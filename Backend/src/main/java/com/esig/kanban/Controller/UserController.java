@@ -33,12 +33,11 @@ public class UserController {
 	
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	public @ResponseBody User Create(@RequestBody User user) {
-        System.out.println(user);
 	    user = userService.save(user);
 	    return user;
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 	    userService.delete(id);
 	}
@@ -49,11 +48,11 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-	@PutMapping(value = "/{id}",produces = "application/json")
-    public ResponseEntity<Optional<User>> Update(@PathVariable Long id) {
-        Optional<User> user = userService.findById(id);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
+	@PutMapping(produces = "application/json")
+	public @ResponseBody User Update(@RequestBody User user) {
+	    user = userService.save(user);
+	    return user;
+	}
 	
 	@GetMapping(produces = "application/json")
     public ResponseEntity<List<User>> List() {

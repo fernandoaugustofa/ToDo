@@ -1,17 +1,24 @@
-<div class="card">
-  <div class="uk-flex-middle" uk-grid>
-    <div class="tag">
-      <div style="margin:auto; width:fit-content">
-        {{Task.id}}
+<div class="uk-card uk-card-default card">
+  <div class="uk-card-header">
+      <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <div style="margin:auto; width:fit-content; font-size:28px">
+              {{Task.id}}
+            </div>
+          </div>
+          <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom">{{Task.title}}</h3>
+              <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{Task.user.username}} - {{Task.deadline}}</time></p>
+          </div>
       </div>
+  </div>
+  <div class="uk-card-body">
+      <p>{{Task.description}}</p>
+  </div>
+  <div class="uk-card-footer uk-flex uk-flex-center">
 
-    </div>
-    <div class="uk-width-expand divider">
-      <p class="title">{{Task.title}}</p>
-      <p class="subtitles"> {{Task.description}}</p>
-    </div>
-    <ul class="uk-iconnav uk-width-auto divider">
-      <li><a class="uk-icon-button" uk-icon="icon: pencil"></a></li>
+    <ul class="uk-iconnav uk-width-auto">
+      <!-- <li><a class="uk-icon-button" uk-icon="icon: pencil"></a></li> -->
       <li><a class="uk-icon-button" uk-icon="icon: trash" (click)="deleteTask()"></a></li>
       <li><a class="uk-icon-button" uk-icon="icon: check" (click)="doneTask()"></a></li>
     </ul>

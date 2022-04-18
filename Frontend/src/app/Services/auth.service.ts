@@ -15,17 +15,13 @@ export class AuthService {
     }),
   };
 
-  SingIn(data: user) {
+  SingIn(data: any) {
     return this.http
       .post<user>(
         this.baseurl+'authenticate',
         JSON.stringify(data),
         this.httpOptions
-      )
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
-        this.router.navigate(['/']);
-      });
+      );
   }
 
   getToken() {
@@ -38,7 +34,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['log-in']);
+      this.router.navigate(['login']);
     }
   }
 }

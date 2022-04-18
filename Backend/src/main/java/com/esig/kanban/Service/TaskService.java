@@ -8,10 +8,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.esig.kanban.Model.Task;
-// import com.esig.kanban.Model.User;
 
 import com.esig.kanban.Repository.TaskRepository;
-// import com.esig.kanban.Repository.UserRepository;
 
 @Service
 public class TaskService {
@@ -19,8 +17,6 @@ public class TaskService {
 	@Autowired
 	private TaskRepository taskRepository;
 
-	// @Autowired
-	// private UserRepository userRepository;
 
 	public List<Task> findAll() {
 		return taskRepository.findAll(Sort.by(Sort.Direction.ASC, "priority"));
@@ -31,9 +27,6 @@ public class TaskService {
 	}
 
 	public Task save(Task task) {
-		System.out.println(task);
-		// User user = userRepository.getById(task.getUser().getId());
-		// task.setUser(user);
 		return taskRepository.save(task);
 	}
 	
